@@ -34,15 +34,8 @@ TEST_TARGET_DIR=$ROOT_DIR/my_build/test
 CLASSPATH=$CLASSPATH:$TARGET_DIR
 CLASSPATH=$CLASSPATH:$TEST_TARGET_DIR
 
-java --enable-preview -cp $CLASSPATH org.junit.runner.JUnitCore org.peidevs.waro.function.GameTest
-java --enable-preview -cp $CLASSPATH org.junit.runner.JUnitCore org.peidevs.waro.function.TourneyTest
-java --enable-preview -cp $CLASSPATH org.junit.runner.JUnitCore org.peidevs.waro.function.RoundTest
-java --enable-preview -cp $CLASSPATH org.junit.runner.JUnitCore org.peidevs.waro.table.ShuffledDeckProviderTest
-java --enable-preview -cp $CLASSPATH org.junit.runner.JUnitCore org.peidevs.waro.table.DealerTest
-java --enable-preview -cp $CLASSPATH org.junit.runner.JUnitCore org.peidevs.waro.table.HandTest
-java --enable-preview -cp $CLASSPATH org.junit.runner.JUnitCore org.peidevs.waro.player.PlayerTest
-java --enable-preview -cp $CLASSPATH org.junit.runner.JUnitCore org.peidevs.waro.strategy.MinCardTest
-java --enable-preview -cp $CLASSPATH org.junit.runner.JUnitCore org.peidevs.waro.strategy.MaxCardTest
-java --enable-preview -cp $CLASSPATH org.junit.runner.JUnitCore org.peidevs.waro.strategy.NextCardTest
+java --enable-preview -cp $CLASSPATH org.junit.runner.JUnitCore org.peidevs.waro.function.bid.BidFetcherLoomImplTest
+
+# -d $TARGET_DIR `find $SRC_DIR -name "*.java"`
 
 echo "Ready."

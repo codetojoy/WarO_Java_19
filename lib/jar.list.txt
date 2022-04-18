@@ -1,3 +1,17 @@
+as expressed in Gradle:
+
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.11.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.2'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.10'
+
+    implementation 'com.google.guava:guava:24.1-jre'
+    implementation 'org.apache.commons:commons-lang3:3.10'
+    implementation 'org.springframework:spring-context:5.2.5.RELEASE'
+
+    implementation 'junit:junit:4.12'
+
+list:
+
 animal-sniffer-annotations-1.14.jar
 checker-compat-qual-2.0.0.jar
 commons-codec-1.11.jar

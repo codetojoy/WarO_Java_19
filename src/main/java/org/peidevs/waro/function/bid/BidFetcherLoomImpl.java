@@ -1,6 +1,5 @@
 package org.peidevs.waro.function.bid;
 
-import org.peidevs.waro.function.bid.async.loom.BidFetcherLoom;
 import org.peidevs.waro.player.*;
 import org.peidevs.waro.table.*;
 import org.peidevs.waro.util.Log;
