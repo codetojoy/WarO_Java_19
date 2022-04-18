@@ -1,6 +1,7 @@
 package org.peidevs.waro.function;
 
 import org.peidevs.waro.function.bid.BidFetcherClassicImpl;
+import org.peidevs.waro.function.bid.BidFetcherLoomImpl;
 import org.peidevs.waro.player.*;
 import org.peidevs.waro.table.*;
 import org.peidevs.waro.util.Log;
@@ -56,7 +57,8 @@ public class Round implements UnaryOperator<Stream<Player>> {
     // --------- internal
 
     protected List<Bid> getAllBids(Stream<Player> players, int prizeCard) {
-        var bidFetcher = new BidFetcherClassicImpl();
+        var IS_LOOM = true;
+        var bidFetcher = (IS_LOOM) ? new BidFetcherLoomImpl() : new BidFetcherClassicImpl();
         var bids = bidFetcher.getAllBids(players, prizeCard);
         return bids;
     }
