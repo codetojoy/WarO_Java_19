@@ -1,2 +1,2 @@
-./my_build
-./lib
+./my_build/**
+./lib/**

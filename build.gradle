@@ -1,0 +1,47 @@
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'org.peidevs.waro.Main'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.11.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.2'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.10'
+
+    implementation 'com.google.guava:guava:24.1-jre'
+    implementation 'org.apache.commons:commons-lang3:3.10'
+    implementation 'org.springframework:spring-context:5.2.5.RELEASE'
+
+    testImplementation 'junit:junit:4.12'
+}
+
+sourceCompatibility = 19
+
+run {
+    standardInput = System.in
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs += '--enable-preview'
+}
+
+tasks.withType(Test) {
+    jvmArgs += "--enable-preview"
+}
+
+tasks.withType(JavaExec) {
+    jvmArgs += "--enable-preview"
+}
+
+installDist.doFirst {
+    ant.delete(dir: project.stagingDir)
+}
+
+installDist {
+    into project.stagingDir
+}
