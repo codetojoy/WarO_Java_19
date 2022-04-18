@@ -30,30 +30,38 @@ public class BidFetcherLoomImpl implements BidFetcher {
     public List<Bid> getAllBids(Stream<Player> players, int prizeCard) {
         var executorService = Executors.newVirtualThreadPerTaskExecutor();
         // Player -> Supplier<Bid> -> MyTask
-        var tasks = players.map(p -> new MyTask(p.getStrategy(prizeCard)))
-                                                      .collect(toList());
-        var futures = new ArrayList<Future<Bid>>();
-        for (var task : tasks) {
-            futures.add(executorService.submit(task));
-        }
-        executorService.shutdown(); // Disable new tasks from being submitted
+        var tasks = players.map(p -> new MyTask(p.getStrategy(prizeCard)));
+        var futures = tasks.map(t -> executorService.submit(t));
 
-        var bids = new ArrayList<Bid>();
+        List<Bid> bids = new ArrayList<Bid>();
 
         try {
+            bids = futures.map(this::myGet).collect(toList());
+
+            executorService.shutdown(); // Disable new tasks from being submitted
             System.out.println("TRACER fetching via v-threads...");
             executorService.awaitTermination(5, TimeUnit.SECONDS);
-
-            for (var future : futures) {
-                bids.add(future.get());
-            }
-            // var bids = futures.stream().map(f -> f.get().collect(toList()));
         } catch (Exception ex) {
-            System.err.println("TRACER BFLI !!! caught exception: " + ex);
-            // just bail out ¯\_(ツ)_/¯
-            System.exit(-1);
+            exitAsFailure("BFLI 2", ex);
         }
 
         return bids;
+    }
+
+    // lambdas have trouble with checked exceptions used in Future.get()
+    // see https://dzone.com/articles/how-to-handle-checked-exception-in-lambda-expressi
+    protected Bid myGet(Future<Bid> f) {
+        Bid result = null;
+        try {
+            result = f.get();
+        } catch (Exception ex) {
+            exitAsFailure("BFLI 1", ex);
+        }
+        return result;
+    }
+
+    void exitAsFailure(String msg, Exception ex) {
+        System.err.println("TRACER " + msg + " caught exception: " + ex);
+        System.exit(-1); // just bail out ¯\_(ツ)_/¯
     }
 }
