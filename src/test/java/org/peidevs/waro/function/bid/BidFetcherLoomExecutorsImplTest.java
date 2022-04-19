@@ -12,7 +12,7 @@ import static java.util.stream.Collectors.toList;
 
 // INTEGRATION TEST
 // requires running server
-public class BidFetcherLoomImplTest {
+public class BidFetcherLoomExecutorsImplTest {
 
     // TODO: DRY
     // API remote strategy
@@ -31,7 +31,7 @@ public class BidFetcherLoomImplTest {
 
         var players = new ArrayList<Player>(List.of(player)).stream();
 
-        var bidFetcher = new BidFetcherLoomImpl();
+        var bidFetcher = new BidFetcherFactory().build(BidFetcherFactory.LOOM_V1);
 
         // test
         var bids = bidFetcher.getAllBids(players, prizeCard);

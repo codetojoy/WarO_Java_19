@@ -24,7 +24,7 @@ class MyTask implements Callable<Bid> {
     }
 }
 
-public class BidFetcherLoomImpl implements BidFetcher {
+public class BidFetcherLoomExecutorsImpl implements BidFetcher {
 
     @Override
     public List<Bid> getAllBids(Stream<Player> players, int prizeCard) {

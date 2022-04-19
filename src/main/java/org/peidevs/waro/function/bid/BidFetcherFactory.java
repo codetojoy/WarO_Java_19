@@ -10,7 +10,7 @@ public class BidFetcherFactory {
             case CLASSIC: 
                 return new BidFetcherClassicImpl();
             case LOOM_V1: 
-                return new BidFetcherLoomImpl();
+                return new BidFetcherLoomExecutorsImpl();
             default:
                 throw new IllegalArgumentException("unknown bid fetcher");
         }
