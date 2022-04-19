@@ -7,7 +7,6 @@ import java.util.concurrent.*;
 import java.util.stream.Stream;
 import java.util.function.Supplier;
 import static java.util.stream.Collectors.toList;
-import static java.util.Comparator.comparing;
 
 public class BidFetcherLoomExecutorsImpl implements BidFetcher {
 

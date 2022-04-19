@@ -7,28 +7,22 @@ import java.util.concurrent.*;
 import java.util.stream.Stream;
 import java.util.function.Supplier;
 import static java.util.stream.Collectors.toList;
-import static java.util.Comparator.comparing;
 
 public class BidFetcherLoomBImpl implements BidFetcher {
+    private ExecutorService executorService;
+
+    BidFetcherLoomBImpl() {
+        var threadFactory = Thread.ofVirtual().factory();
+        executorService = Executors.newSingleThreadExecutor(threadFactory);
+    }
 
     @Override
     public List<Bid> getAllBids(Stream<Player> players, int prizeCard) {
-        var executorService = Executors.newVirtualThreadPerTaskExecutor();
         // Player -> Supplier<Bid> -> MyTask
         var tasks = players.map(p -> new MyTask(p.getStrategy(prizeCard)));
         var futures = tasks.map(t -> executorService.submit(t));
 
-        List<Bid> bids = new ArrayList<Bid>();
-
-        try {
-            bids = futures.map(this::myGet).collect(toList());
-
-            executorService.shutdown(); // Disable new tasks from being submitted
-            System.out.println("TRACER fetching via v-threads...");
-            executorService.awaitTermination(5, TimeUnit.SECONDS);
-        } catch (Exception ex) {
-            exitAsFailure("BFLI 2", ex);
-        }
+        List<Bid> bids = futures.map(this::myGet).collect(toList());
 
         return bids;
     }
