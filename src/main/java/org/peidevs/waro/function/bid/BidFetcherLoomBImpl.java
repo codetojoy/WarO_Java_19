@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 import static java.util.stream.Collectors.toList;
 import static java.util.Comparator.comparing;
 
-public class BidFetcherLoomExecutorsImpl implements BidFetcher {
+public class BidFetcherLoomBImpl implements BidFetcher {
 
     @Override
     public List<Bid> getAllBids(Stream<Player> players, int prizeCard) {

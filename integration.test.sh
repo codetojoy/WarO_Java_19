@@ -34,8 +34,9 @@ TEST_TARGET_DIR=$ROOT_DIR/my_build/test
 CLASSPATH=$CLASSPATH:$TARGET_DIR
 CLASSPATH=$CLASSPATH:$TEST_TARGET_DIR
 
-java --enable-preview -cp $CLASSPATH org.junit.runner.JUnitCore org.peidevs.waro.function.bid.BidFetcherLoomImplTest
+JUNIT_ARGS="--enable-preview -cp $CLASSPATH org.junit.runner.JUnitCore"
 
-# -d $TARGET_DIR `find $SRC_DIR -name "*.java"`
+java $JUNIT_ARGS org.peidevs.waro.function.bid.BidFetcherLoomExecutorsImplTest
+java $JUNIT_ARGS org.peidevs.waro.function.bid.BidFetcherLoomBImplTest
 
 echo "Ready."
