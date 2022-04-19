@@ -15,7 +15,7 @@ public class Config {
     // configure these as desired
     private static final int NUM_CARDS = 12;
     private static final int MAX_CARD = NUM_CARDS;
-    private static final int NUM_GAMES = 1;
+    private static final int NUM_GAMES = 100;
     private static final boolean IS_VERBOSE = true;
 
     // API remote strategy
@@ -44,12 +44,15 @@ public class Config {
     @Bean public int numGames() { return NUM_GAMES; }
     @Bean public boolean isVerbose() { return IS_VERBOSE; }
     @Bean public DeckProvider deckProvider() {
+        return new ShuffledDeckProvider();
+        /*
         List<Integer> cards = new ArrayList<>(List.of(
-            /* kitty */ 1,2,3,
-            /* p1 */    4,5,12,
-            /* p2 */    7,11,9,
-            /* p3 */    10,8,6));
+            /* kitty / 1,2,3,
+            /* p1 /    4,5,12,
+            /* p2 /    7,11,9,
+            /* p3 /    10,8,6));
         return new FixedDeckProvider(cards);
+        */
     }
 
     protected static final String BEAN_NUM_PLAYERS = "numPlayers";
