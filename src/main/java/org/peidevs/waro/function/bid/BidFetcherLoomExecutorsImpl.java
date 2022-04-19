@@ -1,13 +1,11 @@
 package org.peidevs.waro.function.bid;
 
 import org.peidevs.waro.player.*;
-import org.peidevs.waro.table.*;
-import org.peidevs.waro.util.Log;
 
 import java.util.*;
 import java.util.concurrent.*;
-import java.util.stream.*;
-import java.util.function.*;
+import java.util.stream.Stream;
+import java.util.function.Supplier;
 import static java.util.stream.Collectors.toList;
 import static java.util.Comparator.comparing;
 
