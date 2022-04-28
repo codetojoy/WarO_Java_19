@@ -24,9 +24,9 @@ public class BidFetcherLoomBImplTest {
     @Test
     public void testGetAllBids_Basic() {
         int prizeCard = 18;
-        int maxCard = 60;
+        int maxCard = 80;
 
-        var hand = new Hand(List.of(51,50));
+        var hand = new Hand(List.of(66,50));
         var player = new Player("Chopin", new ApiRemote(SCHEME, HOST, PATH, MODE), maxCard, hand);
 
         var players = new ArrayList<Player>(List.of(player)).stream();
