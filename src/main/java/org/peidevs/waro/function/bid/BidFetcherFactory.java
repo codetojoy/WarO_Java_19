@@ -8,19 +8,27 @@ public class BidFetcherFactory {
     public final static int LOOM_V4 = 4;
 
     public BidFetcher build(int type) {
+        BidFetcher result = null;
         switch (type) {
             case CLASSIC:
-                return new BidFetcherClassicImpl();
+                result = new BidFetcherClassicImpl();
+                break;
             case LOOM_V1:
-                return new BidFetcherLoomExecutorsImpl();
+                result = new BidFetcherLoomExecutorsImpl();
+                break;
             case LOOM_V2:
-                return new BidFetcherLoomBImpl();
+                result = new BidFetcherLoomBImpl();
+                break;
             case LOOM_V3:
-                return new BidFetcherLoomCImpl();
+                result = new BidFetcherLoomCImpl();
+                break;
             case LOOM_V4:
-                return new BidFetcherLoomDImpl();
+                result = new BidFetcherLoomDImpl();
+                break;
             default:
                 throw new IllegalArgumentException("unknown bid fetcher");
         }
+        System.err.println("TRACER BidFetcher : " + result.getClass().getSimpleName());
+        return result;
     }
 }

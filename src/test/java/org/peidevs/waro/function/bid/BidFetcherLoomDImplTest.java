@@ -31,7 +31,7 @@ public class BidFetcherLoomDImplTest {
 
         var players = new ArrayList<Player>(List.of(player)).stream();
 
-        var bidFetcher = new BidFetcherFactory().build(BidFetcherFactory.LOOM_V3);
+        var bidFetcher = new BidFetcherFactory().build(BidFetcherFactory.LOOM_V4);
 
         // test
         var bids = bidFetcher.getAllBids(players, prizeCard);
