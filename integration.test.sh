@@ -39,5 +39,6 @@ JUNIT_ARGS="--enable-preview -cp $CLASSPATH org.junit.runner.JUnitCore"
 java $JUNIT_ARGS org.peidevs.waro.function.bid.BidFetcherLoomExecutorsImplTest
 java $JUNIT_ARGS org.peidevs.waro.function.bid.BidFetcherLoomBImplTest
 java $JUNIT_ARGS org.peidevs.waro.function.bid.BidFetcherLoomCImplTest
+java $JUNIT_ARGS org.peidevs.waro.function.bid.BidFetcherLoomDImplTest
 
 echo "Ready."
