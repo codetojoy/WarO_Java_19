@@ -15,7 +15,7 @@ public class Config {
     // configure these as desired
     private static final int NUM_CARDS = 12;
     private static final int MAX_CARD = NUM_CARDS;
-    private static final int NUM_GAMES = 100;
+    private static final int NUM_GAMES = 10;
     private static final boolean IS_VERBOSE = true;
 
     // API remote strategy

@@ -36,7 +36,9 @@ CLASSPATH=$CLASSPATH:$TEST_TARGET_DIR
 
 JUNIT_ARGS="--enable-preview -cp $CLASSPATH org.junit.runner.JUnitCore"
 
+# A Impl
 java $JUNIT_ARGS org.peidevs.waro.function.bid.BidFetcherLoomExecutorsImplTest
+java $JUNIT_ARGS org.peidevs.waro.function.bid.BidFetcherLoomA2ImplTest
 java $JUNIT_ARGS org.peidevs.waro.function.bid.BidFetcherLoomBImplTest
 java $JUNIT_ARGS org.peidevs.waro.function.bid.BidFetcherLoomCImplTest
 java $JUNIT_ARGS org.peidevs.waro.function.bid.BidFetcherLoomDImplTest

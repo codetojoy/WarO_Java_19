@@ -1,12 +1,13 @@
 
 ### todo
 
-* implement BidFetcherLoom just using a dumb ExecutorService with a shutdown/wait
-    - see ~/gists_java/vthread*/eg2
+* use enum with pattern matching
+* consider sealed classes?
 
 ### ok 
 
 * X - does this use the remote strategy?
+* X - copy impl and show that ExecutorService is AutoCloseable
 
 ### notes
 

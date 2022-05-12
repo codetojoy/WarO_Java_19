@@ -6,6 +6,7 @@ public class BidFetcherFactory {
     public final static int LOOM_V2 = 2;
     public final static int LOOM_V3 = 3;
     public final static int LOOM_V4 = 4;
+    public final static int LOOM_V1_1 = 5;
 
     public BidFetcher build(int type) {
         BidFetcher result = null;
@@ -15,6 +16,9 @@ public class BidFetcherFactory {
                 break;
             case LOOM_V1:
                 result = new BidFetcherLoomExecutorsImpl();
+                break;
+            case LOOM_V1_1:
+                result = new BidFetcherLoomA2Impl();
                 break;
             case LOOM_V2:
                 result = new BidFetcherLoomBImpl();
