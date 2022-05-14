@@ -10,7 +10,6 @@ public class BidFetcherFactory {
             case LOOM_V2 -> result = new BidFetcherLoomBImpl();
             case LOOM_V3 -> result = new BidFetcherLoomCImpl();
             case LOOM_V4 -> result = new BidFetcherLoomDImpl();
-            default -> throw new IllegalArgumentException("unknown bid fetcher");
         }
         System.err.println("TRACER BidFetcher : " + result.getClass().getSimpleName());
         return result;
