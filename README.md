@@ -22,7 +22,7 @@ a Java submission for War-O as a code exercise
 To Build:
 ---------
 
-* requires JDK 19.ea.5.lm-open via SDKMan! 
+* requires JDK 19.ea.22-open via [SDKMan!](https://sdkman.io/)
 
 useful commands:
 
