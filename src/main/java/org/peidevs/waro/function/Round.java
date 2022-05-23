@@ -57,6 +57,7 @@ public class Round implements UnaryOperator<Stream<Player>> {
 
     protected List<Bid> getAllBids(Stream<Player> players, int prizeCard) {
         var bidFetcher = new BidFetcherFactory().build(BidFetcherType.LOOM_V1_1);
+        System.out.println("TRACER BidFetcher : " + bidFetcher.getClass().getSimpleName());
         var bids = bidFetcher.getAllBids(players, prizeCard);
         return bids;
     }

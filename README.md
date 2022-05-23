@@ -27,6 +27,7 @@ To Build:
 
 useful commands:
 
+* `sdk env`
 * `./clean.sh`
 * `./compile.sh`
 * `./test.sh`
