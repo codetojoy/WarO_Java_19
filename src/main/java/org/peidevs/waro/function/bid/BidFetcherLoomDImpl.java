@@ -6,7 +6,6 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
-import static java.util.stream.Collectors.toList;
 
 public class BidFetcherLoomDImpl implements BidFetcher {
     private ConcurrentHashMap<Long, Bid> resultMap = new ConcurrentHashMap<>();
@@ -25,7 +24,7 @@ public class BidFetcherLoomDImpl implements BidFetcher {
 
         waitForResults();
 
-        var bids = resultMap.values().stream().collect(toList());
+        var bids = resultMap.values().stream().toList();
 
         return bids;
     }

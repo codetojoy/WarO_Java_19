@@ -4,8 +4,6 @@ import static org.junit.Assert.*;
 import java.util.*;
 import org.junit.*;
 
-import static java.util.stream.Collectors.toList;
-
 import org.peidevs.waro.player.*;
 import org.peidevs.waro.strategy.*;
 
@@ -53,7 +51,7 @@ public class DealerTest {
 
         var kitty = pair.getLeft();
         var hands = pair.getRight();
-        var handList = hands.collect(toList());
+        var handList = hands.toList();
         assertEquals(8, kitty.cardsAsIntStream().count());
         assertEquals(8, handList.get(0).cardsAsIntStream().count());
         assertEquals(8, handList.get(1).cardsAsIntStream().count());

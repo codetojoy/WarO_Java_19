@@ -8,7 +8,6 @@ import org.peidevs.waro.util.Log;
 import java.util.*;
 import java.util.stream.*;
 import java.util.function.*;
-import static java.util.stream.Collectors.toList;
 import static java.util.Comparator.comparing;
 
 public class Round implements UnaryOperator<Stream<Player>> {

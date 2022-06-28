@@ -8,8 +8,6 @@ import static org.junit.Assert.*;
 import java.util.*;
 import org.junit.*;
 
-import static java.util.stream.Collectors.toList;
-
 // INTEGRATION TEST
 // requires running server
 public class BidFetcherLoomBImplTest {

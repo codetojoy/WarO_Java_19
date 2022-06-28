@@ -8,7 +8,7 @@ public final class Console implements Strategy {
     public int selectCard(int prizeCard, IntStream hand, int maxCard) {
         var bid = 0;
 
-        var cards = hand.boxed().collect(Collectors.toList());
+        var cards = hand.boxed().toList();
         System.out.println("\nCard in play is " + prizeCard);
         System.out.print("\nYour hand is ");
         for (var card : cards) {

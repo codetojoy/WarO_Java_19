@@ -6,7 +6,6 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Stream;
 import java.util.function.Supplier;
-import static java.util.stream.Collectors.toList;
 
 public class BidFetcherLoomExecutorsImpl implements BidFetcher {
 
@@ -20,7 +19,7 @@ public class BidFetcherLoomExecutorsImpl implements BidFetcher {
         List<Bid> bids = new ArrayList<Bid>();
 
         try {
-            bids = futures.map(this::myGet).collect(toList());
+            bids = futures.map(this::myGet).toList();
 
             executorService.shutdown(); // Disable new tasks from being submitted
             System.out.println("TRACER fetching via v-threads...");

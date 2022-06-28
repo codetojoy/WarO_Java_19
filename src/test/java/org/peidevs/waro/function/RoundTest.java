@@ -8,8 +8,6 @@ import static org.junit.Assert.*;
 import java.util.*;
 import org.junit.*;
 
-import static java.util.stream.Collectors.toList;
-
 public class RoundTest {
 
     @Test
@@ -35,7 +33,7 @@ public class RoundTest {
         int prizeCard = 10;
 
         // test
-        var newPlayers = new Round(prizeCard).apply(players.stream()).collect(toList());
+        var newPlayers = new Round(prizeCard).apply(players.stream()).toList();
 
         assertEquals(3, newPlayers.size());
         assertEquals(2, newPlayers.get(0).getNumCardsInHand());

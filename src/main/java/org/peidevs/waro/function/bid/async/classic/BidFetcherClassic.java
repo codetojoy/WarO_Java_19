@@ -24,9 +24,7 @@ public class BidFetcherClassic {
 
         // CompletableFuture<List<Bid>>
         var compoundFuture = allFutures.thenApply(v -> {
-            return futures.stream()
-                          .map(f -> f.join())
-                          .collect(Collectors.toList());
+            return futures.stream().map(f -> f.join()).toList();
         });
 
         var results = compoundFuture.get();

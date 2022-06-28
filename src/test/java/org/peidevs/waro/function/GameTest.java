@@ -8,8 +8,6 @@ import static org.junit.Assert.*;
 import java.util.*;
 import org.junit.*;
 
-import static java.util.stream.Collectors.toList;
-
 public class GameTest {
     private DeckProvider shuffledDeckProvider = new ShuffledDeckProvider();
     private DeckProvider fixedDeckProvider;
@@ -143,7 +141,7 @@ public class GameTest {
         var game = new Game(numPlayers, numCards, false, shuffledDeckProvider);
 
         // test
-        var newPlayers = game.play(kitty, players.stream()).collect(toList());
+        var newPlayers = game.play(kitty, players.stream()).toList();
 
         assertEquals(3, newPlayers.size());
         assertEquals(0, newPlayers.get(0).getNumCardsInHand());

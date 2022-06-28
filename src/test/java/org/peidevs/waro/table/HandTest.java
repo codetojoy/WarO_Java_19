@@ -5,13 +5,12 @@ import java.util.*;
 import org.junit.*;
 
 import java.util.stream.*;
-import static java.util.stream.Collectors.toList;
 
 public class HandTest {
     
     @Test
     public void testSelect_Basic() {
-        var cards = IntStream.range(1,10+1).boxed().collect(toList());
+        var cards = IntStream.range(1,10+1).boxed().toList();
         var hand = new Hand(cards);
         
         // test
@@ -22,7 +21,7 @@ public class HandTest {
     
     @Test(expected=IllegalArgumentException.class)
     public void testSelect_Illegal() {
-        var cards = IntStream.range(1,10+1).boxed().collect(toList());
+        var cards = IntStream.range(1,10+1).boxed().toList();
         var hand = new Hand(cards);
         
         // test

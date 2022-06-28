@@ -82,7 +82,7 @@ public final class ApiRemote implements Strategy {
 
         List<String> cardsStrings = hand.boxed()
                                         .map(c -> "" + c)
-                                        .collect(Collectors.toList());
+                                        .toList();
 
         var cardsQueryValue = String.join(",", cardsStrings);
 

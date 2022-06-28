@@ -6,7 +6,6 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Stream;
 import java.util.function.Supplier;
-import static java.util.stream.Collectors.toList;
 
 public class BidFetcherLoomA2Impl implements BidFetcher {
 
@@ -20,12 +19,12 @@ public class BidFetcherLoomA2Impl implements BidFetcher {
 
             // we don't want a stream or else concurrent tasks aren't called
             // until evaluated, i.e. too late
-            futures = tasks.map(t -> executor.submit(t)).collect(toList());
+            futures = tasks.map(t -> executor.submit(t)).toList();
         }
         // executor is closed/shutdown here
 
         var bidGetter = new BidGetter();
-        var bids = futures.stream().map(bidGetter::myGet).collect(toList());
+        var bids = futures.stream().map(bidGetter::myGet).toList();
 
         return bids;
     }

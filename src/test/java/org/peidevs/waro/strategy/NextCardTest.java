@@ -5,7 +5,6 @@ import java.util.*;
 import org.junit.*;
 
 import java.util.stream.*;
-import static java.util.stream.Collectors.toList;
 
 public class NextCardTest {
 

@@ -6,7 +6,6 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Stream;
 import java.util.function.Supplier;
-import static java.util.stream.Collectors.toList;
 
 public class BidFetcherLoomCImpl implements BidFetcher {
     private ExecutorService executorService;
@@ -23,7 +22,7 @@ public class BidFetcherLoomCImpl implements BidFetcher {
         var futures = tasks.map(t -> executorService.submit(t));
 
         var bidGetter = new BidGetter();
-        List<Bid> bids = futures.map(bidGetter::myGet).collect(toList());
+        List<Bid> bids = futures.map(bidGetter::myGet).toList();
 
         return bids;
     }
