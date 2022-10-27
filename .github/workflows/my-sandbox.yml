@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: greeting
-      - run: echo "TRACER hello from sandbox workflow"
+        run: echo "TRACER hello from sandbox workflow"
