@@ -45,3 +45,7 @@ installDist.doFirst {
 installDist {
     into project.stagingDir
 }
+
+task myTest {
+   println "TRACER hello from task myTest" 
+}
