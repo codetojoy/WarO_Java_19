@@ -1,9 +1,9 @@
 package org.peidevs.waro.table;
 
-import static org.junit.Assert.*;
-import java.util.*;
-import org.junit.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
 
+import java.util.*;
 import java.util.stream.*;
 
 public class HandTest {
@@ -19,13 +19,12 @@ public class HandTest {
         assertEquals(9, result.cardsAsIntStream().boxed().count());
     }
     
-    @Test(expected=IllegalArgumentException.class)
+    @Test
     public void testSelect_Illegal() {
         var cards = IntStream.range(1,10+1).boxed().toList();
         var hand = new Hand(cards);
         
         // test
-        var result = hand.select(18);
+        assertThrows(IllegalArgumentException.class, () -> hand.select(18));
     }
-    
 }

@@ -4,9 +4,10 @@ import org.peidevs.waro.player.*;
 import org.peidevs.waro.strategy.*;
 import org.peidevs.waro.table.Hand;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
 import java.util.*;
-import org.junit.*;
 
 // INTEGRATION TEST
 // requires running server

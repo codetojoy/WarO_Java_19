@@ -4,15 +4,16 @@ import org.peidevs.waro.player.*;
 import org.peidevs.waro.strategy.*;
 import org.peidevs.waro.table.*;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
+
 import java.util.*;
-import org.junit.*;
 
 public class GameTest {
     private DeckProvider shuffledDeckProvider = new ShuffledDeckProvider();
     private DeckProvider fixedDeckProvider;
 
-    @Before
+    @BeforeEach
     public void setup() {
         List<Integer> cards = new ArrayList<>(List.of(
             /* kitty */ 1,2,3,
