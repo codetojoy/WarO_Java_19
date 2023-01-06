@@ -26,12 +26,16 @@ run {
     standardInput = System.in
 }
 
-tasks.withType(JavaCompile) {
-    options.compilerArgs += '--enable-preview'
+test {
+    jvmArgs(['--enable-preview'])
+
+    testLogging {
+        events "passed", "failed"
+    }
 }
 
-tasks.withType(Test) {
-    jvmArgs += "--enable-preview"
+tasks.withType(JavaCompile) {
+    options.compilerArgs += '--enable-preview'
 }
 
 tasks.withType(JavaExec) {
@@ -44,8 +48,4 @@ installDist.doFirst {
 
 installDist {
     into project.stagingDir
-}
-
-task myTest {
-   println "TRACER hello from task myTest" 
 }
