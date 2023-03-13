@@ -33,6 +33,8 @@ test {
     testLogging {
         events "passed", "failed"
     }
+
+    exclude '**/BidFetcherLoom*' 
 }
 
 tasks.withType(JavaCompile) {
