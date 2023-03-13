@@ -27,15 +27,16 @@ To Build:
 useful commands:
 
 * `sdk env`
-* `./clean.sh`
-* `./compile.sh`
-* `./test.sh`
+* `./gradlew clean`
+* `./gradlew test`
+* `./gradlew testIntegration`
+    - requires API/remote Strategy server to be running (see above)
 
 To Run:
 ---------
 
 * configure `src/main/java/org/peidevs/waro/config/Config.java`
-* `./run.sh`
+* `./gradlew run`
 
 Rules:
 ---------
