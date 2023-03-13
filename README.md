@@ -22,8 +22,7 @@ a Java submission for War-O as a code exercise
 To Build:
 ---------
 
-* tested with JDK 19.ea.29-open via [SDKMan!](https://sdkman.io/)
-* Gradle does not yet support JDK 19 preview (as of June 2022). Check [here](https://docs.gradle.org/current/userguide/compatibility.html)
+* tested with JDK `19.0.1-oracle` via [SDKMan!](https://sdkman.io/)
 
 useful commands:
 
