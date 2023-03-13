@@ -3,7 +3,7 @@ Rules:
 ---------
 
 Use a deck of N cards with no suits, just natural numbers from 1 to N.
-(as in Rack-O http://en.wikipedia.org/wiki/Rack-O)
+(as in [Rack-O](http://en.wikipedia.org/wiki/Rack-O))
 
 Shuffle and deal N cards evenly to X players and a kitty.
 
