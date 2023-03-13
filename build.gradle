@@ -33,8 +33,6 @@ test {
     testLogging {
         events "passed", "failed"
     }
-
-    exclude '**/BidFetcherLoom*' 
 }
 
 tasks.withType(JavaCompile) {
@@ -52,6 +50,36 @@ installDist.doFirst {
 installDist {
     into project.stagingDir
 }
+
+// --------- integration tests
+
+sourceSets {
+    integration {
+        java.srcDir "$projectDir/src/integration/java"
+        resources.srcDir "$projectDir/src/integration/resources"
+        compileClasspath += main.output + test.output
+        runtimeClasspath += main.output + test.output
+    }
+}
+
+configurations {
+    integrationImplementation.extendsFrom testImplementation
+    integrationRuntime.extendsFrom testRuntime
+}
+
+task testIntegration(type: Test) {
+    testClassesDirs = sourceSets.integration.output.classesDirs
+    classpath = sourceSets.integration.runtimeClasspath
+
+    jvmArgs(['--enable-preview'])
+    useJUnitPlatform()
+
+    testLogging {
+        events "passed", "failed"
+    }
+}
+
+// --------- build scan
 
 gradleEnterprise {
     buildScan {
